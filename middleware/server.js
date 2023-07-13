@@ -157,7 +157,7 @@ app.post('/add/item', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/get/items/:name', authenticateToken, async (req, res) => {
+app.get('/get/items/:name', async (req, res) => {
     try {
         const items = await Item.find({name: {$regex: new RegExp(req.params.name), $options: 'i'}});
         console.log(items)
@@ -171,7 +171,7 @@ app.get('/get/items/:name', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/get/items', authenticateToken, async (req, res) => {
+app.get('/get/items', async (req, res) => {
     try {
         const regex = await new RegExp(`${req.params.name}`)
         console.log(regex)
@@ -187,7 +187,7 @@ app.get('/get/items', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/get/category/:category', authenticateToken, async (req, res) => {
+app.get('/get/category/:category', async (req, res) => {
     try {
         const items = await Item.find({categories: req.params.category});
         if(!items) {
