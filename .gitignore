@@ -1,0 +1,5 @@
+# FrontEnd 
+/frontend/node_modules
+
+# Middleware
+/middleware/node_modules
