@@ -19,13 +19,8 @@ function Cart() {
       let response = await getCart(token);
       if (response?.ok) {
         let parsed = await response.json();
-        if (parsed.items === []) {
-          setNoCart(true);
-        } else {
-          setNoCart(false);
           setCartItems(parsed.items);
           setCartPrice(parsed.price);
-        }
       } else {
         console.log('error');
       }

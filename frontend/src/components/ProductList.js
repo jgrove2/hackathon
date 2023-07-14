@@ -5,7 +5,7 @@ export default function ProductList({ items,setCartItems }) {
   console.log("iii", items)
   return (
     <div>
-    {items.map((i,index) =><Product key={index} item={i} setCartItems={setCartItems} />
+    {items.map((i,index) =><Product key={index} item={i} />
       )}
     </div>
   );

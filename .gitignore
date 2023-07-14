@@ -5,3 +5,6 @@
 # Middleware
 /middleware/node_modules
 /middleware/.env
+
+# Data Analysis
+/dataanalysis/dummydata.csv

@@ -74,8 +74,8 @@ const Navbar = () => {
                 <div className='left'>
                 <button className="home" onClick={() => navigate('/')}>Home</button>
                 <div class="search-container">
-                    <form onSubmit={handleSearch}>
-                        <input type="text" placeholder="Search.." name="search" />
+                    <form action='http://localhost:3000/search?'>
+                        <input type="text" placeholder="Search.." name="item" />
                             <button type="submit">Search</button>
                     </form>
                 </div>
