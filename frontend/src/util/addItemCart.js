@@ -1,22 +1,18 @@
-async function addItemCart(data) {
-    let jwt =  document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("jwt="))
-    ?.split("=")[1];
-
-    const response = await fetch('http://localhost:8081/add/cart', {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + jwt
-        },
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify(data)
-    });
-    return response.json();
+async function addItemCart(data, jwtToken) {
+    try{
+        const response = await fetch('http://localhost:8081/add/cart', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify(data)
+        });
+        const parsed = response.json()
+        return parsed;
+    } catch (error) {
+        console.error(`Error adding item to cart: ${error}`);
+    }
 }
 
 export default addItemCart;

@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div class='Navbar'>
+            <div className='Navbar'>
                 <button onClick={toggleModal}>Login</button>
                 <LoginModal open={modalOpen} setOpen={setModalOpen}/>
             </div>
