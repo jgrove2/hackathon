@@ -1,8 +1,8 @@
 dialog {
-    width: 300px;
+    width: 400px;
     margin: auto auto;
-    background-color: #eee;
-    border: solid 2px;
+    background-color: #fff;
+    border: none;
     border-radius: 10px;
 }
 
@@ -20,20 +20,32 @@ dialog {
     line-height: 1.6;
     font-weight: semi-bold;
     text-align: left;
+    background-color: white;
+    position: absolute;
+    display: inline-block;
+    padding: 0 10px;
+    transform: translate(30px, -10px);
+    font-size: 14px;
 }
 
 .form-input input{
-    width: 95%;
-    padding: 5px;
-    margin-bottom: 10px;
+    width: 23rem;
+    padding: 1rem .8rem;
+    margin-bottom: 20px;
+    border-radius: 100px;
 }
 
 .form-input input:invalid {
     border: 2px solid lightcoral;
 }
 
-.form-input input:valid {
-    border: 2px solid lightseagreen;
+.form-input input[type=text]:focus {
+    border: 2px solid lightcoral;
+    box-shadow: 0 0 5px lightcoral;
+}
+
+.form-input input[type=text]:valid {
+    border: 1px solid lightseagreen;
 }
 
 .form-button {
@@ -44,8 +56,9 @@ dialog {
     padding: 10px 20px;
     background-color: #4caf50;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 20px;
     cursor: pointer;
+    margin-top: 1rem;
 }
 
 .form-button button:hover {

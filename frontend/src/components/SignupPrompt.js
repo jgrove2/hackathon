@@ -34,7 +34,7 @@ const SignupPrompt = ({ setOpen, setError, setBack }) => {
 
     return (
         <>
-            <h1 style={{ textAlign: "center" }}>Register</h1>
+            <h1 style={{ textAlign: "center", paddingBottom: "2rem"}}>Register</h1>
             <form className="form-container" onSubmit={handleSubmit}>
                 <div className="form-input">
                     <label for='email'>Email:</label>

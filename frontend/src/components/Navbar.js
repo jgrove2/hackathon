@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import LoginModal from './LoginModal';
+import './Navbar.css';
 
 const Navbar = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -11,9 +12,10 @@ const Navbar = () => {
     return (
         <>
             <div className='Navbar'>
-                <button onClick={toggleModal}>Login</button>
-                <LoginModal open={modalOpen} setOpen={setModalOpen}/>
+                <button className='login' onClick={toggleModal}>Login</button>
+                <button className='cart'>Cart</button>
             </div>
+                <LoginModal open={modalOpen} setOpen={setModalOpen}/>
         </>
     )
 }
