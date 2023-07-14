@@ -38,7 +38,7 @@ function Home({setCartItems}) {
   }
 
   return (
-    <div>
+    <div style={{paddingTop: "5rem"}}>
     <Container  style={{backgroundColor: "#D3D3D3"}}>
       <Carousel style={{display: "flex",
         alignItems: "center"}}>
@@ -69,7 +69,7 @@ function Home({setCartItems}) {
     </Container>
       <Row>
         <Col>
-        <div className="contentStyle">
+      <div>
         {item && (<ProductList items={item} setCartItems={setCartItems} />)}
       </div>
         </Col>

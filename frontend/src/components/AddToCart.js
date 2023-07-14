@@ -20,7 +20,7 @@ function AddToCart({item, setCartItems}) {
     setShow(false)};
   const handleShow = async () => {
     let token = cookies['jwtToken']
-    let response = await addItemCart(item.id, token);
+    let response = await addItemCart({itemId: item.id}, token);
     console.log(response);
     // if(response.message) {
     //   setModalOpen(!modalOpen);

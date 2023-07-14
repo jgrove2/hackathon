@@ -12,8 +12,8 @@ function App() {
   console.log("These are cart items", cartItems)
   return (
     <CookiesProvider>
-      <Navbar />
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home setCartItems={setCartItems} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems}/>}/>
