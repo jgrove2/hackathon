@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "antd";
+<<<<<<< HEAD
 import ProductList from "./components/ProductList.js";
+=======
+import Navbar from './components/Navbar';
+>>>>>>> main
 
 // const contentStyle = {
 //   width: "100%",

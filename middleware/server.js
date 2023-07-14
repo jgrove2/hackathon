@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const brcypt = require("bcrypt");
 var cors = require("cors");
+=======
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const brcypt = require('bcrypt');
+const cors = require('cors');
+>>>>>>> main
 
 const User = require("./models/User");
 const Item = require("./models/Item");
@@ -23,8 +32,16 @@ app.use(
 );
 app.use(express.json());
 
+<<<<<<< HEAD
 mongoose
   .connect("mongodb://localhost:27017/store", {
+=======
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
+
+mongoose.connect("mongodb://localhost:27017/store", {
+>>>>>>> main
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -193,12 +210,26 @@ app.get("/get/items/:name", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 app.get("/get/items", async (req, res) => {
   try {
     const items = await Item.find();
     console.log(items);
     if (!items) {
       return res.status(404).json({ message: "No values found" });
+=======
+app.get('/get/items', async (req, res) => {
+    try {
+        const items = await Item.find();
+        console.log(items)
+        if(!items) {
+            return res.status(404).json({message: 'No values found'});
+        }
+        res.json(items);
+    } catch(err) {
+        console.log(`Error searching item ${err}`)
+        res.status(500).json({ message: 'An error occurred'});
+>>>>>>> main
     }
     res.json(items);
   } catch (err) {
