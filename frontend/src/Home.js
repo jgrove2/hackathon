@@ -42,6 +42,23 @@ function Home({setCartItems}) {
 
   return (
     <div style={{paddingTop: "5rem"}}>
+      <div style={{display: "flex", padding: "20px", alignItems: "center", justifyContent: "center"}}>{""}
+    <div style={{padding: "10px"}}>
+      <Link to="/search?category=outdoors"><Button variant="primary">Outdoor</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/search?category=indoors"><Button variant="success">Indoors</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/search?category=weather"><Button variant="warning">Weather</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/search?category=/household"><Button variant="danger">Household</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/search?category=construction"><Button variant="info">Construction</Button>{' '}</Link>{""}
+      </div>
+    </div>
     <Container  style={{backgroundColor: "#D3D3D3", display: "flex",
         alignItems: "center", justifyContent: "center"}}>
       <Carousel >
@@ -80,23 +97,7 @@ function Home({setCartItems}) {
       </Carousel.Item>
     </Carousel>
     </Container>
-    <div style={{display: "flex", padding: "20px", alignItems: "center", justifyContent: "center"}}>{""}
-    <div style={{padding: "10px"}}>
-      <Link to="/search?category=outdoors"><Button variant="primary">Outdoor</Button>{' '}</Link>{""}
-      </div>
-      <div style={{padding: "10px"}}>
-      <Link to="/search?category=indoors"><Button variant="success">Indoors</Button>{' '}</Link>{""}
-      </div>
-      <div style={{padding: "10px"}}>
-      <Link to="/search?category=weather"><Button variant="warning">Weather</Button>{' '}</Link>{""}
-      </div>
-      <div style={{padding: "10px"}}>
-      <Link to="/search?category=/household"><Button variant="danger">Household</Button>{' '}</Link>{""}
-      </div>
-      <div style={{padding: "10px"}}>
-      <Link to="/search?category=construction"><Button variant="info">Construction</Button>{' '}</Link>{""}
-      </div>
-    </div>
+    
       {/* <Row>
         <Col>
       <div>
