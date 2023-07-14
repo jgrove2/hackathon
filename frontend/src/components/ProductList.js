@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Product from "./Product.js";
+import Product from "./product.js";
 
 export default function ProductList({ items,setCartItems }) {
   console.log("iii", items)

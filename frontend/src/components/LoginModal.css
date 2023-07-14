@@ -39,11 +39,6 @@ dialog {
     border: 2px solid lightcoral;
 }
 
-.form-input input[type=text]:focus {
-    border: 2px solid lightcoral;
-    box-shadow: 0 0 5px lightcoral;
-}
-
 .form-input input[type=text]:valid {
     border: 1px solid lightseagreen;
 }

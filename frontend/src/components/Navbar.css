@@ -9,13 +9,18 @@
 }
 
 .login {
-    padding: 1rem;
+    padding: .5rem;
     margin-right: 2rem;
-    background-color: lightslategray;
+    background-color: white;
     border: none;
     border-radius: 20px;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .cart {
     margin-right: 2rem;
+    border-radius: 50%;
+    padding: 1rem;
 }

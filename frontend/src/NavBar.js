@@ -11,7 +11,6 @@ function NavBar() {
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
             <Link to="/cart">Cart</Link>
-            
           </Nav>
         </Container>
       </Navbar>
