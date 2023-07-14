@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Carousel from 'react-bootstrap/Carousel';
 import travelersumbrella from './components/images/travelersumbrella.jpg'
 import redshirt from './components/images/redshirt.jpeg'
+import kidshirt from './components/images/kidshirt.jpg'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -50,7 +51,7 @@ function Home({setCartItems}) {
         />
         <Carousel.Caption style={{color: "black"}}>
           <h3>Travelers Umbrella</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>#1 Selling</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
@@ -61,7 +62,18 @@ function Home({setCartItems}) {
         />
         <Carousel.Caption style={{color: "black"}} >
           <h3>Travelers Shirt</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Now Trending</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={2000}>
+        <img
+        style={carouselStyle}
+          src={kidshirt}
+          alt="First slide"
+        />
+        <Carousel.Caption style={{color: "black"}}>
+          <h3>Travelers Kid Shirt</h3>
+          <p>Most Popular</p>
         </Carousel.Caption>
       </Carousel.Item>
       
