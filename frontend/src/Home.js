@@ -82,28 +82,28 @@ function Home({setCartItems}) {
     </Container>
     <div style={{display: "flex", padding: "20px", alignItems: "center", justifyContent: "center"}}>{""}
     <div style={{padding: "10px"}}>
-      <Link to="/items/outdoors"><Button variant="primary">Outdoor</Button>{' '}</Link>{""}
+      <Link to="/search?category=outdoors"><Button variant="primary">Outdoor</Button>{' '}</Link>{""}
       </div>
       <div style={{padding: "10px"}}>
-      <Link to="/items/indoors"><Button variant="success">Indoors</Button>{' '}</Link>{""}
+      <Link to="/search?category=indoors"><Button variant="success">Indoors</Button>{' '}</Link>{""}
       </div>
       <div style={{padding: "10px"}}>
-      <Link to="/items/weather"><Button variant="warning">Weather</Button>{' '}</Link>{""}
+      <Link to="/search?category=weather"><Button variant="warning">Weather</Button>{' '}</Link>{""}
       </div>
       <div style={{padding: "10px"}}>
-      <Link to="/items/household"><Button variant="danger">Household</Button>{' '}</Link>{""}
+      <Link to="/search?category=/household"><Button variant="danger">Household</Button>{' '}</Link>{""}
       </div>
       <div style={{padding: "10px"}}>
-      <Link to="/items/construction"><Button variant="info">Construction</Button>{' '}</Link>{""}
+      <Link to="/search?category=construction"><Button variant="info">Construction</Button>{' '}</Link>{""}
       </div>
     </div>
-      <Row>
+      {/* <Row>
         <Col>
       <div>
         {item && (<ProductList items={item} setCartItems={setCartItems} />)}
       </div>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   );
 }
