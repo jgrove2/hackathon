@@ -8,6 +8,8 @@ import kidshirt from './components/images/kidshirt.jpg'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 
 const contentStyle = {
   width: "100%",
@@ -40,9 +42,9 @@ function Home({setCartItems}) {
 
   return (
     <div style={{paddingTop: "5rem"}}>
-    <Container  style={{backgroundColor: "#D3D3D3"}}>
-      <Carousel style={{display: "flex",
-        alignItems: "center"}}>
+    <Container  style={{backgroundColor: "#D3D3D3", display: "flex",
+        alignItems: "center", justifyContent: "center"}}>
+      <Carousel >
       <Carousel.Item interval={2000}>
         <img
         style={carouselStyle}
@@ -76,9 +78,25 @@ function Home({setCartItems}) {
           <p>Most Popular</p>
         </Carousel.Caption>
       </Carousel.Item>
-      
     </Carousel>
     </Container>
+    <div style={{display: "flex", padding: "20px", alignItems: "center", justifyContent: "center"}}>{""}
+    <div style={{padding: "10px"}}>
+      <Link to="/items/outdoors"><Button variant="primary">Outdoor</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/items/indoors"><Button variant="success">Indoors</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/items/weather"><Button variant="warning">Weather</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/items/household"><Button variant="danger">Household</Button>{' '}</Link>{""}
+      </div>
+      <div style={{padding: "10px"}}>
+      <Link to="/items/construction"><Button variant="info">Construction</Button>{' '}</Link>{""}
+      </div>
+    </div>
       <Row>
         <Col>
       <div>

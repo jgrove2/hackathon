@@ -44,7 +44,7 @@ function Cart() {
   return (
     <div style={{ paddingTop: "5rem" }}>
       {
-        noCart ?
+        cartItems ?
           <div>
             <ListGroup as="ol" numbered>
               {cartItems?.map(function (eachItem, indexOfEachItem) {
