@@ -22,16 +22,16 @@ const contentStyle = {
 function Home({setCartItems}) {
   const [item, setItems] = useState([]);
 
-  useEffect(() => {
-    const fetchItems = async () => {
-      const itemUrl = await fetch("http://localhost:8081/get/items");
-      const itemJson = await itemUrl.json();
-        console.log(itemJson);
-      setItems(itemJson);
-    };
-    fetchItems();
-  }, []);
-  console.log(item);
+  // useEffect(() => {
+  //   const fetchItems = async () => {
+  //     const itemUrl = await fetch("http://localhost:8081/get/items");
+  //     const itemJson = await itemUrl.json();
+  //       console.log(itemJson);
+  //     setItems(itemJson);
+  //   };
+  //   fetchItems();
+  // }, []);
+  // console.log(item);
 
   const carouselStyle= {
     padding: "150px",

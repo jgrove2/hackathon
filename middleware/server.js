@@ -236,10 +236,12 @@ app.get('/get/items', async (req, res) => {
 
 app.get("/get/category/:category", async (req, res) => {
   try {
+    console.log(req.params.category)
     const items = await Item.find({ categories: req.params.category });
     if (!items) {
       return res.status(404).json({ message: "No values found" });
     }
+    console.log(items)
     res.json(items);
   } catch (err) {
     console.log(`Error searching item ${err}`);

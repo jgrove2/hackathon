@@ -25,6 +25,7 @@ const Search = () => {
             }
             if (response?.ok) {
                 let parsed = await response.json();
+                console.log(parsed)
                 setItems(parsed);
             } else {
                 console.log('error');

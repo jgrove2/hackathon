@@ -7,11 +7,10 @@ export default function Product({ item } ) {
   console.log("items", item);
   return (
     <div>
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <Card style={{ width: "18rem", height: "10rem" }}>
       <Card.Body>
         <Card.Title>{item.name}</Card.Title>
-        <Card.Text>{item.price.$numberDecimal}</Card.Text>
+        <Card.Text>{`Price: $${item.price.$numberDecimal}`}</Card.Text>
         <AddToCart item={item}/>
       </Card.Body>
     </Card>

@@ -12,6 +12,7 @@ function AddToCart({item, setCartItems}) {
   const [count,setCount] = useState(0)
   const [cookies, setCookie, removeCookie] = useCookies(['jwtToken'])
   const [modalOpen, setModalOpen] = useState(false);
+  const [added, setAdded] = useState(false);
 
   const handleClose = () => {
     setCartItems((prev) => [...prev, {name: item.name,
@@ -21,12 +22,11 @@ function AddToCart({item, setCartItems}) {
   const handleShow = async () => {
     let token = cookies['jwtToken']
     let response = await addItemCart({itemId: item.id}, token);
-    console.log(response);
-    // if(response.message) {
-    //   setModalOpen(!modalOpen);
-    // } else {
+    if(response?.ok) {
+      setAdded(true);
+      // setTimeout(setAdded(false), 1000);
       
-    // }
+    }
   };
 
   const increaseCount = () => setCount((prev) => prev + 1)
@@ -38,10 +38,11 @@ function AddToCart({item, setCartItems}) {
     }
     })}
 
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Add to Cart!
+        {added ? 'Addded' : 'Add to Cart!'}
       </Button>
       <LoginModal open={modalOpen} setOpen={setModalOpen}/>
       <Modal show={show} onHide={handleClose}>
