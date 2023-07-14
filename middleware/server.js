@@ -198,8 +198,6 @@ app.post("/add/item", authenticateToken, async (req, res) => {
     }
     // Create a new item
     const item = new Item({ id, name, price, categories });
-    console.log('---------------')
-    console.log(item);
     await item.save();
     res.json({ message: "Item added" });
   } catch (err) {
@@ -213,7 +211,6 @@ app.get("/get/items/:name", async (req, res) => {
     const items = await Item.find({
       name: { $regex: new RegExp(req.params.name), $options: "i" },
     });
-    console.log(items);
     if (!items) {
       return res.status(404).json({ message: "No values found" });
     }
@@ -227,7 +224,6 @@ app.get("/get/items/:name", async (req, res) => {
 app.get('/get/items', async (req, res) => {
     try {
         const items = await Item.find();
-        console.log(items)
         if(!items) {
             return res.status(404).json({message: 'No values found'});
         }
