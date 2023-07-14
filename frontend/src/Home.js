@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Carousel } from "antd";
+import Navbar from './components/Navbar';
 
 const contentStyle = {
   width: "100%",
@@ -26,7 +27,11 @@ function Home() {
       </div>
     </Carousel>;
   };
-  return <div>{renderSlider()}</div>;
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 }
 
 export default Home;

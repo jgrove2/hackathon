@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const brcypt = require('bcrypt');
+const cors = require('cors');
 
 const User = require('./models/User');
 const Item = require('./models/Item');
@@ -12,6 +13,10 @@ const app = express();
 const port = process.env.PORT || 8081;
 
 app.use(express.json());
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 mongoose.connect("mongodb://localhost:27017/store", {
     useNewUrlParser: true,
@@ -173,9 +178,7 @@ app.get('/get/items/:name', async (req, res) => {
 
 app.get('/get/items', async (req, res) => {
     try {
-        const regex = await new RegExp(`${req.params.name}`)
-        console.log(regex)
-        const items = await Item.find({name: "Red Umbrella"});
+        const items = await Item.find();
         console.log(items)
         if(!items) {
             return res.status(404).json({message: 'No values found'});
