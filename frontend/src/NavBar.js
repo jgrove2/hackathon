@@ -8,7 +8,7 @@ function NavBar() {
     <>
       <Navbar bg="primary" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
             <Link to="/cart">Cart</Link>
             
