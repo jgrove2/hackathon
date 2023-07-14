@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "./components/Cart.js"
 import Navbar from './components/Navbar'
+import Search from './components/Search'
 
 function App() {
   const [cartItems, setCartItems] = useState([])
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home setCartItems={setCartItems} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems}/>}/>
+          <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>

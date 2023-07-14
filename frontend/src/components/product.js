@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import AddToCart from "./AddToCart.js"
 
-export default function Product({ item, setCartItems} ) {
+export default function Product({ item } ) {
   console.log("items", item);
   return (
     <div>
@@ -12,7 +12,7 @@ export default function Product({ item, setCartItems} ) {
       <Card.Body>
         <Card.Title>{item.name}</Card.Title>
         <Card.Text>{item.price.$numberDecimal}</Card.Text>
-        <AddToCart item={item} setCartItems={setCartItems}/>
+        <AddToCart item={item}/>
       </Card.Body>
     </Card>
     </div>
