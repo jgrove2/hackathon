@@ -42,7 +42,7 @@ function Home({setCartItems}) {
   //     </Carousel>;
 
   return (
-    <div>
+    <div style={{paddingTop: "5rem"}}>
       {/* {renderSlider()} */}
       <div>
         {item && (<ProductList items={item} setCartItems={setCartItems} />)}

@@ -1,6 +1,6 @@
-async function getCart(jwtToken) {
+async function authenticateLogin(jwtToken) {
     try{
-        const response = await fetch('http://localhost:8081/get/cart', {
+        const response = await fetch('http://localhost:8081/', {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${jwtToken}`
@@ -12,4 +12,4 @@ async function getCart(jwtToken) {
     }
 }
 
-export default getCart;
+export default authenticateLogin;
