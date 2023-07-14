@@ -1,8 +1,21 @@
 .Navbar {
-    background-color: cornflowerblue;
+    background-color: white;
     height: 4rem;
     position: absolute;
     width: 100%;
-    display: flex;
+    display:flex;
     justify-content: right;
+    align-items: center;
+}
+
+.login {
+    padding: 1rem;
+    margin-right: 2rem;
+    background-color: lightslategray;
+    border: none;
+    border-radius: 20px;
+}
+
+.cart {
+    margin-right: 2rem;
 }
