@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import LoginModal from './LoginModal';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import './Navbar.css';
 import authenticateLogin from '../util/authenticateLogin';
+import getCartSize from '../util/getCartSize';
 
-const Navbar = () => {
+const Navbar = ({setNumCartItems, numCartItems}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['jwtToken'])
     const [loggedIn, setLogIn] = useState(false);
@@ -21,6 +22,9 @@ const Navbar = () => {
                 } else {
                     setLogIn(false);
                 }
+                response = await getCartSize(token);
+                let size = await response.json()
+                setNumCartItems(size.size)
             }
         }
         auth();
@@ -83,8 +87,10 @@ const Navbar = () => {
                 <div className="right">
                 {loggedIn ? <button className='login' onClick={logOut}>Logout</button> :
                     <button className='login' onClick={toggleModal}>Login</button>}
-
-                <button className='cart' onClick={goToCart}>Cart</button>
+                <div className='cartButton'>
+                    <button className='cart' onClick={goToCart}>Cart</button>
+                    {loggedIn ? <div className='itemsInCart'>{numCartItems}</div> : null}
+                </div>
                 </div>
             </div>
             <LoginModal open={modalOpen} setOpen={setModalOpen} />

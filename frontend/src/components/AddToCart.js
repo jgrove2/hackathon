@@ -7,21 +7,18 @@ import LoginModal from './LoginModal';
 
 
 
-function AddToCart({item, setCartItems}) {
+function AddToCart({item, numCartItems, setNumCartItems}) {
   const [show, setShow] = useState(false);
   const [count,setCount] = useState(0)
   const [cookies, setCookie, removeCookie] = useCookies(['jwtToken'])
   const [modalOpen, setModalOpen] = useState(false);
   const [added, setAdded] = useState(false);
 
-  const handleClose = () => {
-    setCartItems((prev) => [...prev, {name: item.name,
-        price: item.price.$numberDecimal,
-        quantity: count}])
-    setShow(false)};
   const handleShow = async () => {
     let token = cookies['jwtToken']
     let response = await addItemCart({itemId: item.id}, token);
+    console.log(numCartItems+1)
+    setNumCartItems(numCartItems+1);
     if(response?.ok) {
       setAdded(true);
       // setTimeout(setAdded(false), 1000);
@@ -44,7 +41,7 @@ function AddToCart({item, setCartItems}) {
       <Button variant="primary" onClick={handleShow}>
         {added ? 'Addded' : 'Add to Cart!'}
       </Button>
-      <LoginModal open={modalOpen} setOpen={setModalOpen}/>
+      {/* <LoginModal open={modalOpen} setOpen={setModalOpen}/>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{item.name}</Modal.Title>
@@ -62,7 +59,7 @@ function AddToCart({item, setCartItems}) {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 }

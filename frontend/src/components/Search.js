@@ -5,7 +5,7 @@ import searchCategory from '../util/searchCategory';
 import Product from './product';
 import './Search.css'
 
-const Search = () => {
+const Search = ({setNumCartItems, numCartItems}) => {
     const location = useLocation();
     const queryParameters = new URLSearchParams(location.search);
     const [items, setItems] = useState([]);
@@ -25,7 +25,6 @@ const Search = () => {
             }
             if (response?.ok) {
                 let parsed = await response.json();
-                console.log(parsed)
                 setItems(parsed);
             } else {
                 console.log('error');
@@ -40,7 +39,7 @@ const Search = () => {
             <p>Your Search: {search}</p>
             <div className='products'>
                 {items.map(
-                    (i, index) => <Product className='item' key={index} item={i} />
+                    (i, index) => <Product className='item' key={index} item={i} numCartItems={numCartItems} setNumCartItems={setNumCartItems}/>
                 )}
             </div>
         </div>

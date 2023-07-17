@@ -19,19 +19,8 @@ const contentStyle = {
   background: "#364d79",
 };
 
-function Home({setCartItems}) {
+function Home() {
   const [item, setItems] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchItems = async () => {
-  //     const itemUrl = await fetch("http://localhost:8081/get/items");
-  //     const itemJson = await itemUrl.json();
-  //       console.log(itemJson);
-  //     setItems(itemJson);
-  //   };
-  //   fetchItems();
-  // }, []);
-  // console.log(item);
 
   const carouselStyle= {
     padding: "150px",
@@ -97,14 +86,7 @@ function Home({setCartItems}) {
       </Carousel.Item>
     </Carousel>
     </Container>
-    
-      {/* <Row>
-        <Col>
-      <div>
-        {item && (<ProductList items={item} setCartItems={setCartItems} />)}
-      </div>
-        </Col>
-      </Row> */}
+
     </div>
   );
 }

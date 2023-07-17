@@ -6,7 +6,7 @@ import getCart from '../util/getCart';
 import { useNavigate } from 'react-router-dom'
 import checkoutCart from '../util/checkoutCart';
 
-function Cart() {
+function Cart({setNumCartItems, numCartItems}) {
   const [cartItems, setCartItems] = useState([]);
   const [noCart, setNoCart] = useState(false);
   const [cartPrice, setCartPrice] = useState(0);
@@ -32,12 +32,14 @@ function Cart() {
     let token = cookies['jwtToken']
     let response = await checkoutCart(token);
     if (response?.ok) {
+      setNumCartItems(0)
       navigate('/');
     }
   }
 
   return (
     <div style={{ paddingTop: "5rem" }}>
+      <h1>Your Cart:</h1>
       {
         cartItems ?
           <div>
@@ -50,7 +52,7 @@ function Cart() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">{eachItem.name}</div>
-                      {eachItem.price.$decimalNumber}
+                      {`$${eachItem.price}`}
 
                     </div>
                     <Badge bg="primary" pill>

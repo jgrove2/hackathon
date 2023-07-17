@@ -96,7 +96,6 @@ function authenticateToken(req, res, next) {
     }
 
     req.userId = user.userId;
-    console.log(user);
     next();
   });
 }
@@ -104,7 +103,6 @@ function authenticateToken(req, res, next) {
 app.get("/checkout/cart", authenticateToken, async (req, res) => {
   try {
     const customerCart = await Cart.findOne({ userId: req.userId });
-    console.log(customerCart)
     if (customerCart) {
       const createCart = new Checkout({
         userId: req.userId,
@@ -136,13 +134,9 @@ app.post("/add/cart", authenticateToken, async (req, res) => {
       });
       await createCart.save();
     } else {
-      console.log('-----------------------')
-      console.log(itemId)
       let temp = existingCart.items;
       temp.push(parseInt(itemId))
-      console.log(temp)
       existingCart.items = temp;
-      console.log(existingCart.items)
       await existingCart.save();
     }
     res.json({ message: "cart updated" });
@@ -175,6 +169,20 @@ app.get("/get/cart", authenticateToken, async (req, res) => {
     res.status(500).json({ message: "An error occurred" });
   }
 });
+
+app.get("/get/cart/size", authenticateToken, async (req, res) => {
+  try {
+    const existingCart = await Cart.findOne({ userId: req.userId });
+    if (!existingCart) {
+      res.json({ size: 0 });
+    } else {
+      res.json({ size: existingCart.items.length});
+    }
+  } catch (err) {
+    console.log(`Error searching item ${err}`);
+    res.status(500).json({ message: "An error occurred" });
+  }
+})
 
 app.get("/", authenticateToken, (req, res) => {
   res.json({ message: "OK" });
@@ -236,12 +244,10 @@ app.get('/get/items', async (req, res) => {
 
 app.get("/get/category/:category", async (req, res) => {
   try {
-    console.log(req.params.category)
     const items = await Item.find({ categories: req.params.category });
     if (!items) {
       return res.status(404).json({ message: "No values found" });
     }
-    console.log(items)
     res.json(items);
   } catch (err) {
     console.log(`Error searching item ${err}`);
