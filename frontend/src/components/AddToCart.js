@@ -14,52 +14,46 @@ function AddToCart({item, numCartItems, setNumCartItems}) {
   const [modalOpen, setModalOpen] = useState(false);
   const [added, setAdded] = useState(false);
 
-  const handleShow = async () => {
-    let token = cookies['jwtToken']
-    let response = await addItemCart({itemId: item.id}, token);
-    console.log(numCartItems+1)
-    setNumCartItems(numCartItems+1);
-    if(response?.ok) {
-      setAdded(true);
-      // setTimeout(setAdded(false), 1000);
-      
-    }
+  const handleShow = () => {
+    setShow(true)
   };
 
-  const increaseCount = () => setCount((prev) => prev + 1)
-  const decreaseCount = () => {setCount((prev) => {
-    if(prev<1){
-        return 0
-    } else{
-        return prev - 1
-    }
-    })}
-
+  const handleClose = async () => {
+    let token = cookies['jwtToken']
+    let response = await addItemCart({itemId: item.id}, token);
+    setNumCartItems(numCartItems+1);
+    setShow(false)
+    console.log(item.price.$numberDecimal)
+  }
 
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        {added ? 'Addded' : 'Add to Cart!'}
+        View
       </Button>
-      {/* <LoginModal open={modalOpen} setOpen={setModalOpen}/>
+      <LoginModal open={modalOpen} setOpen={setModalOpen}/>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{item.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Button variant="primary" onClick={decreaseCount} >-</Button>
+          <div>
+            <p>{`Price: $${item.price.$numberDecimal}`}</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim mauris sem, id blandit nunc tincidunt ut. Quisque eleifend risus vel arcu euismod, vitae suscipit eros dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi laoreet nisi a justo ullamcorper auctor. Suspendisse quis ultrices arcu. Cras tempus erat vestibulum pellentesque interdum. Aliquam hendrerit eros vel maximus tincidunt. Quisque maximus libero metus, quis tempus ligula lacinia sit amet. Suspendisse vitae ornare massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus enim urna, posuere a mattis id, feugiat sollicitudin metus.</p>
+          </div>
+        {/* <Button variant="primary" onClick={decreaseCount} >-</Button>
         {count}
-        <Button variant="primary" onClick={increaseCount}>+</Button>
+        <Button variant="primary" onClick={increaseCount}>+</Button> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Add to Cart
           </Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
     </>
   );
 }

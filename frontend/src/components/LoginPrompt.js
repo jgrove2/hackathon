@@ -34,12 +34,12 @@ const LoginPrompt = ({setOpen, setError}) => {
         <h1 style={{textAlign: "center", paddingBottom: "2rem"}}>Login</h1>
             <form className="form-container" onSubmit={handleSubmit}>
                 <div className="form-input">
-                    <label for='email'>Email:</label>
-                    <input type='email' name='email' value={email} onChange={handleChangeEmail} required></input>
+                    <label htmlFor='email'>Email:</label>
+                    <input type='email' name='email' id='email' autoComplete="email" value={email} onChange={handleChangeEmail} required></input>
                     </div>
                     <div className="form-input">
-                    <label for='psswd'>Password:</label>
-                    <input type='password' name='psswd' value={password} onChange={handleChangePassword} required minLength={5}></input>
+                    <label htmlFor='psswd'>Password:</label>
+                    <input type='password' name='psswd' id='psswd' autoComplete="current-password" value={password} onChange={handleChangePassword} required minLength={5}></input>
                     </div>
             <div className = "form-button">
                 <button type="submit">Login</button>

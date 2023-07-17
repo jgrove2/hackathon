@@ -4,6 +4,8 @@ dialog {
     background-color: #fff;
     border: none;
     border-radius: 10px;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .form-container {
@@ -72,6 +74,6 @@ dialog {
     text-decoration: underline;
     border-radius: 2px;
     height: 25px;
-    width: 90px;
+    width: auto;
     cursor: pointer;
 }

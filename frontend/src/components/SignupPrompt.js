@@ -37,16 +37,16 @@ const SignupPrompt = ({ setOpen, setError, setBack }) => {
             <h1 style={{ textAlign: "center", paddingBottom: "2rem"}}>Register</h1>
             <form className="form-container" onSubmit={handleSubmit}>
                 <div className="form-input">
-                    <label for='email'>Email:</label>
-                    <input type='email' name='email' value={email} onChange={handleChangeEmail} required></input>
+                    <label htmlFor='email'>Email:</label>
+                    <input type='email' name='email' id='email' autoComplete="email" value={email} onChange={handleChangeEmail} required></input>
                 </div>
                 <div className="form-input">
-                    <label for='username'>Username:</label>
-                    <input type='text' name='username' value={username} onChange={handleChangeUser} required pattern="^[a-zA-Z0-9]{4,10}$"></input>
+                    <label htmlFor='username'>Username:</label>
+                    <input type='text' name='username' id='username' autoComplete="off" value={username} onChange={handleChangeUser} required pattern="^[a-zA-Z0-9]{4,10}$"></input>
                 </div>
                 <div className="form-input">
-                    <label for='psswd'>Password:</label>
-                    <input type='password' name='psswd' value={password} onChange={handleChangePassword} required minLength={3}></input>
+                    <label htmlFor='psswd'>Password:</label>
+                    <input type='password' name='psswd' id='psswd' autoComplete="off" value={password} onChange={handleChangePassword} required minLength={3}></input>
                 </div>
                 <div className="form-button">
                     <button type="submit">Register</button>

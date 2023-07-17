@@ -77,7 +77,7 @@ const Navbar = ({setNumCartItems, numCartItems}) => {
             <div className='Navbar'>
                 <div className='left'>
                 <button className="home" onClick={() => navigate('/')}>Home</button>
-                <div class="search-container">
+                <div className="search-container">
                     <form action='http://localhost:3000/search?'>
                         <input type="text" placeholder="Search.." name="item" />
                             <button type="submit">Search</button>
